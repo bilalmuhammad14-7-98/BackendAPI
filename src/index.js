@@ -1,6 +1,13 @@
+require("./models/User");
 const express = require("express");
 const mongoose = require("mongoose");
+const authRoutes = require("./routes/authRoutes");
+const bodyParser = require("body-parser");
+
 const app = express();
+
+app.use(bodyParser.json());
+app.use(authRoutes);
 
 const mongoUri =
   "mongodb+srv://admin:passwordpassword@cluster0.itrdu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
